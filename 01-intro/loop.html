@@ -1,0 +1,33 @@
+<script>
+    let values = [10, 23, 45, 12, 34, 11, 78]
+
+    console.log("For loop")
+    for(let i = 0; i < values.length; i++) {
+        console.log(values[i])
+    }
+
+    console.log("For in")
+    for(v in values) {
+        console.log(values[v])
+    }
+
+    console.log("While")
+    let c = 0;
+    while(c < values.length) {
+        console.log(values[c])
+        c++
+    }
+
+    console.log("do while")
+    c = 0;
+    do {
+        if(c >= values.length) {
+            break
+        }
+        console.log(values[c])
+        c++
+    } while(c < values.length)
+
+    // break 
+    // continue 
+</script>
