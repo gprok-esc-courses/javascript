@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Play with DOM</h1>
+    <div>
+        <button onclick="addParagraph()">Add Paragraph</button>
+        <button id='night-day-button' onclick="changeMode()">Night Mode</button>
+    </div>
+
+    <script>
+        function addParagraph() {
+            const para = document.createElement("p")
+            const para_text = document.createTextNode("New paragraph!")
+            para.appendChild(para_text)
+            document.body.appendChild(para)
+        }
+        function changeMode() {
+            let btnText = document.getElementById('night-day-button').innerHTML
+            console.log(btnText)
+            if(btnText == "Day Mode") {
+                document.getElementById('night-day-button').innerHTML = "Night Mode"
+                document.body.style.color = 'black'
+                document.body.style.backgroundColor = 'white'
+            }
+            else {
+                document.getElementById('night-day-button').innerHTML = "Day Mode"
+                document.body.style.color = 'white'
+                document.body.style.backgroundColor = 'black'
+            }
+        }
+    </script>
+    
+</body>
+</html>
