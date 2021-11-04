@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label>ISBN:</label> <input type="text" id="isbn"> <button onclick="getBook()">Find</button>
+    </div>
+    <div id='book'></div>
+
+    <script>
+        function getBook() {
+            let isbn = document.getElementById('isbn').value 
+            fetch('https://openlibrary.org/isbn/' + isbn + '.json')
+                .then(response => response.json())
+                .then(data => displayBook(data))
+                .catch(error => displayError())
+        }
+
+        function displayBook(data) {
+            let html = "" 
+            html += "<h3>" + data['title'] + "</h3>" 
+            html += "<p>" + data['description']['value'] + "</p>"
+            html += "<p><img src='https://covers.openlibrary.org/b/isbn/" + data['isbn_13'][0] + "-M.jpg' />" 
+            document.getElementById('book').innerHTML = html
+        }
+
+        function displayError() {
+            let html = "<h3 style='color: red;'>ISBN not found</h3>"
+            document.getElementById('book').innerHTML = html
+        }
+    </script>
+    
+</body>
+</html>

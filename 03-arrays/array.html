@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let values = [12, 4, 16, 11, 5, 9, 3]
+        let values2 = [21, 1]
+
+        console.log(values.join(' - '))
+
+        console.log("Print array with loop")
+        for(let i = 0; i < values.length; i++) {
+            console.log(values[i])
+        }
+
+        console.log("Print array using forEach")
+        values.forEach(element => console.log(element))
+
+        let values_all = values.concat(values2)
+        console.log(values_all)
+
+        console.log(values.every(element => element < 100))
+
+        let small_values = values.filter(element => element < 10)
+        console.log(small_values)
+
+        console.log(values.find(element => element > 11))
+        console.log(values.findIndex(element => element > 11))
+        console.log(values.indexOf(16))
+
+        let total = values.reduce((accumulator, element) => {
+            if (element < 10) {
+                return accumulator + element
+            }
+            else
+                return accumulator
+                
+        }, 0)
+        console.log(total)
+
+        let reversed = values.reverse()
+        console.log(reversed)
+
+        let new_values = values.slice(2, 4)
+        console.log(new_values)
+    </script>
+</body>
+</html>
